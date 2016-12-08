@@ -1,0 +1,6 @@
+{
+  "name": "canvas-study",
+  "dependencies": {
+    "sanitize-css": "*"
+  }
+}
