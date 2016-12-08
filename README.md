@@ -1,1 +1,1 @@
-# canvas-study
+# doodle-canvas
