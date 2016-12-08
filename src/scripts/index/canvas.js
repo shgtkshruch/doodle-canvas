@@ -1,5 +1,6 @@
 (() => {
   const drawMethod = document.getElementById('drawMethod');
+  const erase = document.getElementById('erase');
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
 
@@ -96,6 +97,12 @@
   canvas.addEventListener('mouseup', () => {
     draging = false;
     saveDrawingsurface();
+  }, false);
+
+  erase.addEventListener('click', () => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawGrid('lightgray', 10, 10);
   }, false);
 
   drawGrid('lightgray', 10, 10);
