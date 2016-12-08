@@ -1,7 +1,11 @@
 extends layout
 
 block title
-  title canvas-study
+  title doodle-canvas
 
 block body
+  select#drawMethod
+    option(value='line' selected) line
+    option(value='circle') circle
+
   canvas#canvas(width="600" height="400")

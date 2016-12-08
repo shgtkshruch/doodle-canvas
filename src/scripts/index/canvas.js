@@ -1,4 +1,5 @@
 (() => {
+  const drawMethod = document.getElementById('drawMethod');
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
 
@@ -41,6 +42,16 @@
     context.stroke();
   }
 
+  function drawCircle(location) {
+    const x = Math.abs(mousedown.x - location.x);
+    const y = Math.abs(mousedown.y - location.y);
+    const radiuse = Math.sqrt((x ** 2) + (y ** 2));
+
+    context.beginPath();
+    context.arc(mousedown.x, mousedown.y, radiuse, 0, Math.PI * 2, false);
+    context.stroke();
+  }
+
   function saveDrawingsurface() {
     drawingSurfaceImageData = context.getImageData(0, 0, canvas.width, canvas.height);
   }
@@ -68,7 +79,17 @@
 
       restoreDrawingSurface();
 
-      drawLine(location);
+      switch (drawMethod.value) {
+        case 'line':
+          drawLine(location);
+          break;
+
+        case 'circle':
+          drawCircle(location);
+          break;
+
+        default:
+      }
     }
   }, false);
 
